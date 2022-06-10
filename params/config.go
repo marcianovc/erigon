@@ -74,6 +74,7 @@ var (
 	MumbaiGenesisHash     = common.HexToHash("0x7b66506a9ebdbf30d32b43c5f15a3b1216269a1ec3a75aa3182b86176a2b1ca7")
 	BorMainnetGenesisHash = common.HexToHash("0xa9c28ce2141b56c474f1dc504bee9b01eb1bd7d1a507580d5519d4437a97de1b")
 	BorDevnetGenesisHash  = common.HexToHash("0x5a06b25b0c6530708ea0b98a3409290e39dce6be7f558493aeb6e4b99a172a87")
+	ZcoreGenesisHash      = common.HexToHash("0x5a06b25b0c6530708ea0b98a3409290e39dce6be7f558493aeb6e4b99a172a87")
 )
 
 var (
@@ -164,6 +165,8 @@ var (
 	BorMainnetChainConfig = readChainSpec("chainspecs/bor-mainnet.json")
 
 	BorDevnetChainConfig = readChainSpec("chainspecs/bor-devnet.json")
+
+	ZcoreChainConfig = readChainSpec("chainspecs/zcore.json")
 
 	CliqueSnapshot = NewSnapshotConfig(10, 1024, 16384, true, "")
 
@@ -775,6 +778,8 @@ func ChainConfigByChainName(chain string) *ChainConfig {
 		return BorMainnetChainConfig
 	case networkname.BorDevnetChainName:
 		return BorDevnetChainConfig
+        case networkname.ZcoreChainName:
+                return ZcoreChainConfig
 	default:
 		return nil
 	}
@@ -810,6 +815,8 @@ func GenesisHashByChainName(chain string) *common.Hash {
 		return &BorMainnetGenesisHash
 	case networkname.BorDevnetChainName:
 		return &BorDevnetGenesisHash
+        case networkname.ZcoreChainName:
+                return &ZcoreGenesisHash
 	default:
 		return nil
 	}

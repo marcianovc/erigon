@@ -717,6 +717,19 @@ func DefaultBorDevnetGenesisBlock() *Genesis {
 	}
 }
 
+func DefaultZcoreGenesisBlock() *Genesis {
+        return &Genesis{
+                Config:     params.ZcoreChainConfig,
+                Nonce:      0,
+                Timestamp:  1558348305,
+                GasLimit:   10000000,
+                Difficulty: big.NewInt(1),
+                Mixhash:    common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+                Coinbase:   common.HexToAddress("0x0000000000000000000000000000000000000000"),
+                Alloc:      readPrealloc("allocs/zcore.json"),
+        }
+}
+
 // Pre-calculated version of:
 //    DevnetSignPrivateKey = crypto.HexToECDSA(sha256.Sum256([]byte("erigon devnet key")))
 //    DevnetEtherbase=crypto.PubkeyToAddress(DevnetSignPrivateKey.PublicKey)
@@ -795,6 +808,8 @@ func DefaultGenesisBlockByChainName(chain string) *Genesis {
 		return DefaultBorMainnetGenesisBlock()
 	case networkname.BorDevnetChainName:
 		return DefaultBorDevnetGenesisBlock()
+        case networkname.ZcoreChainName:
+                return DefaultZcoreGenesisBlock()
 	case networkname.KilnDevnetChainName:
 		return DefaultKilnDevnetGenesisBlock()
 	default:
