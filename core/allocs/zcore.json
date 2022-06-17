@@ -767,6 +767,12 @@
   "0x00000000000000000000000000000000000000ff": {
     "balance": "0x0"
   },
+  "0x09c1ABd5C7Bf9143dF737B364F5964ae78eCB706": {
+    "balance": "0xc9f2c9cd04674edea40000000"
+  },
+  "0x8fa6FE7940a75FD8aE02c156E6172137a215a1f0": {
+    "balance": "0xc9f2c9cd04674edea40000000"
+  },
   "0xe9B4D883Ce71edf29909fF9F8602C06461991b3a": {
     "balance": "0xc9f2c9cd04674edea40000000"
   }
